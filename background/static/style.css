@@ -1,0 +1,50 @@
+.content {
+	margin: auto;
+	width: 60%;	
+}
+
+.Title {
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: 0em;	
+}
+
+.line {
+	margin-top: 0em;
+	margin-bottom: 2em;
+	text-align: center;
+}
+
+.adding {
+	text-align: center;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.table {
+	text-align: center;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.topic {
+	width: 80%;
+	text-align: center;
+}
+
+th {
+	border-bottom: solid;
+	font-size: 18px;		
+}
+
+.update {
+	width: 10%;
+}
+.remove {
+	width: 10%;
+}
+
+td {
+	padding: 10px;
+	border-bottom: groove;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1 class="Title">{% block title %}TODO-list{% endblock %}</h1>
+	<p class="line">A simple list to help you remember</p>
+{% endblock %}
+
+{% block content %}
+	<form action="/add" method="post">
+		<div class="adding">
+			<label>TODO Topic</label>
+			<input type="text" name="topic" maxlength="115" placeholder="Topic name" value="{{ request.form['topic'] }}" required>
+			<button type="submit">Add</button>
+		</div>
+	</form>	
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="topic">Task</th>
+				<th class="remove">Remove</th>
+				<th class="update">Update</th>
+			</tr>
+		</thead>
+		<tbody>	
+			{% for item in items %}
+				<tr>
+					<td class="topic">{{ item.topic }}</td>
+					<td class="remove"><a href="/remove/{{ item.id }}">Remove</a></td>
+					<td class="update"><a href="/update/{{ item.id }}">Update</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>	
+	
+{% endblock %}

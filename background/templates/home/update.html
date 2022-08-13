@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>{% block title %}Update {{ item['topic'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+	<form method="post">
+		<label for="topic">Topic</label>
+		<input name="topic" id="topic" value="{{ request.form['topic'] or item['topic'] }}" required>
+		<input type="submit" value="Save"> 	
+	<form action="/">
+		<input type="submit" value="Cancel">
+	</form>
+	</form>
+	
+{% endblock %}
