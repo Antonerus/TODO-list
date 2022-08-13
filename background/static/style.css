@@ -48,3 +48,8 @@ td {
 	padding: 10px;
 	border-bottom: groove;
 }
+
+.updating {
+	text-align: center;
+	padding-top: 20px;
+}
