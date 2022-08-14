@@ -13,7 +13,7 @@ bp = Blueprint('home', __name__)
 def index():
 	db = get_db()
 	items = db.execute(
-		'SELECT topic, id, created'
+		'SELECT topic, id, created, completed'
 		' FROM item'
 		' ORDER BY created DESC'			
 	).fetchall()
@@ -25,9 +25,9 @@ def add():
 	topic = request.form['topic']
 	db = get_db()
 	db.execute(
-		'INSERT INTO item (topic)'
-		' VALUES (?)', 
-		(topic,)
+		'INSERT INTO item (topic, completed)'
+		' VALUES (?, ?)', 
+		(topic, "Incomplete")
 	)
 	db.commit()
 	return redirect(url_for('home.index'))
@@ -41,12 +41,36 @@ def remove(id):
 	)	
 	db.commit()
 	return redirect(url_for('home.index'))
+
+@bp.route('/complete/<int:id>')
+def complete(id):
+	db = get_db()
+	db.execute(
+		'UPDATE item SET completed = ?'
+		' WHERE id = ?',
+		("Finished", id)
+	)
+	#increment from task completed variable
+	db.commit()
+	return redirect(url_for('home.index'))
+
+@bp.route('/uncomplete/<int:id>')
+def uncomplete(id):
+	db = get_db()
+	db.execute(
+		'UPDATE item SET completed = ?'
+		' WHERE id = ?',
+		("Incomplete", id)
+	)
+	#decrement from task completed variable
+	db.commit()
+	return redirect(url_for('home.index'))
 	
 @bp.route('/update/<int:id>', methods=["POST", "GET"])
 def update(id):
 	db = get_db()
 	item = db.execute(
-		'SELECT id, topic, created' 
+		'SELECT id, topic, created, completed' 
 		' FROM item' 
 		' WHERE id = ?', 
 		(id,)

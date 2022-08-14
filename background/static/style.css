@@ -1,6 +1,6 @@
 .content {
 	margin: auto;
-	width: 60%;	
+	width: 80%;	
 }
 
 .Title {
@@ -28,7 +28,7 @@
 }
 
 .topic {
-	width: 80%;
+	width: 70%;
 	text-align: center;
 }
 
@@ -52,4 +52,12 @@ td {
 .updating {
 	text-align: center;
 	padding-top: 20px;
+}
+
+.status {
+	width: 10%;
+}
+
+.addingBar {
+	width: 45%;
 }
