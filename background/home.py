@@ -17,8 +17,13 @@ def index():
 		' FROM item'
 		' ORDER BY created DESC'			
 	).fetchall()
-	
-	return render_template('home/index.html', items=items)
+	finished = db.execute(
+		'SELECT completed'
+		' FROM counter'
+		' WHERE id = ?',
+		(1,)
+	).fetchone() 
+	return render_template('home/index.html', items=items, finished=finished)
 
 @bp.route('/add', methods=["POST"])
 def add():
@@ -50,7 +55,11 @@ def complete(id):
 		' WHERE id = ?',
 		("Finished", id)
 	)
-	#increment from task completed variable
+	db.execute(
+		'UPDATE counter SET completed = completed + 1'
+		' WHERE id = ?',
+		(1,)
+	)	
 	db.commit()
 	return redirect(url_for('home.index'))
 
@@ -63,6 +72,11 @@ def uncomplete(id):
 		("Incomplete", id)
 	)
 	#decrement from task completed variable
+	db.execute(
+		'UPDATE counter SET completed = completed - 1'
+		' WHERE id = ?',
+		(1,)
+	)
 	db.commit()
 	return redirect(url_for('home.index'))
 	

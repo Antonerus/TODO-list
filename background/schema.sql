@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS counter;
 
 CREATE TABLE item (
 	id INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -8,7 +9,13 @@ CREATE TABLE item (
 );
 
 
+CREATE TABLE counter (
+	id INTEGER PRIMARY KEY,
+	completed INTEGER NOT NULL
+);
 
+INSERT INTO counter (id, completed)
+VALUES (1, 0)
 
 
 

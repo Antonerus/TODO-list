@@ -50,8 +50,9 @@ td {
 }
 
 .updating {
+	width: 100%;
 	text-align: center;
-	padding-top: 20px;
+	padding-top: 1em;
 }
 
 .status {
@@ -59,5 +60,22 @@ td {
 }
 
 .addingBar {
+	width: 45%;
+}
+
+.counter {
+	padding-top: 2em;
+	font-size: 20px;
+	color: FireBrick;
+}
+
+.updateTitle {
+	font-size: 30px;
+	text-align: center;
+	padding-bottom: 2em;
+	border-bottom: solid;	
+}
+
+.updateInput {
 	width: 45%;
 }
