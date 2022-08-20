@@ -64,7 +64,7 @@ td {
 }
 
 .counter {
-	padding-top: 2em;
+	padding-top: 0.5em;
 	font-size: 20px;
 	color: FireBrick;
 }

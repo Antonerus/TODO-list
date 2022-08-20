@@ -28,13 +28,19 @@ def index():
 @bp.route('/add', methods=["POST"])
 def add():
 	topic = request.form['topic']
-	db = get_db()
-	db.execute(
-		'INSERT INTO item (topic, completed)'
-		' VALUES (?, ?)', 
-		(topic, "Incomplete")
-	)
-	db.commit()
+	error = None
+	if not topic:
+		error = 'Must include what the topic is'
+	if error is not None:
+		flash(error)
+	else:	
+		db = get_db()
+		db.execute(
+			'INSERT INTO item (topic, completed)'
+			' VALUES (?, ?)', 
+			(topic, "Incomplete")
+		)
+		db.commit()
 	return redirect(url_for('home.index'))
 
 @bp.route('/remove/<int:id>')
