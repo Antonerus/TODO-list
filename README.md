@@ -13,12 +13,14 @@ Features of the webapp include
 ## How to Run
 Install the requirements
 ```
-	$ pip -r install requirements.txt
+	$ pip install -r requirements.txt
 ```
 Initialize the Database
 ```
 	$ flask init-db
 ```
+This is only required when starting up the app the first time
+
 To begin running 
 ```
 	$ waitress-serve --call 'background:create_app'
