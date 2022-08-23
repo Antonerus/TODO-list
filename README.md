@@ -12,14 +12,15 @@ Features of the webapp include
 
 ## How to Run
 Install the requirements
-.. code-block: : text
+```
 	$ pip -r install requirements.txt
-
+```
 Initialize the Database
-.. code-block: : text
+```
 	$ flask init-db
-
+```
 To begin running 
-.. code-block: : text
+```
 	$ waitress-serve --call 'background:create_app'
+```
 On your browser insert 'http://localhost:8080/' 
