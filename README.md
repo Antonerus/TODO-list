@@ -15,8 +15,9 @@ Install the requirements
 ```
 	$ pip install -r requirements.txt
 ```
-Initialize the Database
+Initialize the Database and export background
 ```
+	$ export FLASK_APP=background
 	$ flask init-db
 ```
 This is only required when starting up the app the first time
