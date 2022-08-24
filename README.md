@@ -11,6 +11,8 @@ Features of the webapp include
 * A counter for the total number of tasks that are completed based on how many tasks have the finished status on the list and the ones that have the finished status after being removed as well
 
 ## How to Run
+Navigate to the working directory of the project
+
 Install the requirements
 ```
 	$ pip install -r requirements.txt
