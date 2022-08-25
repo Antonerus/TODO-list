@@ -28,4 +28,16 @@ To begin running
 ```
 	$ waitress-serve --call 'background:create_app'
 ```
-On your browser insert 'http://localhost:8080/' 
+On your browser insert 'http://localhost:8080/'
+
+## Run the pytests
+Install the directory 
+
+Move to your project directory 
+```
+	$ pip install -e .
+```
+Run the test cases
+```
+	$ pytest
+``` 
